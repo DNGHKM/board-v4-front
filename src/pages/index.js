@@ -20,11 +20,11 @@ const Home = () => {
         <div className="container mt-5">
             <div className="row">
                 {boards.map(board => (
-                    <div key={board.boardId} className="col-md-6 mb-4">
+                    <div key={board.boardId} className="col-md-6">
                         <LatestPostTable board={board}/>
                     </div>
                 ))}
-                <div className="col-md-6 mb-4">
+                <div className="col-md-6">
                     <LatestQnaTable/>
                 </div>
             </div>

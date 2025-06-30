@@ -16,7 +16,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 const PostTable = ({board, posts, searchParams}) => {
     return (
-        <TableContainer component={Paper} sx={{ backgroundColor: '#f9f9f9'}}>
+        <TableContainer component={Paper} sx={{backgroundColor: '#f9f9f9'}}>
             <Table sx={{
                 minWidth: 650,
                 border: '1px solid #ddd',
@@ -26,12 +26,12 @@ const PostTable = ({board, posts, searchParams}) => {
             }} aria-label="post table">
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center" sx={{ width: 60, fontSize: '1rem' }}>번호</TableCell>
-                        <TableCell align="center" sx={{ width: 100, fontSize: '1rem' }}>카테고리</TableCell>
-                        <TableCell align="center" sx={{ width: 400, fontSize: '1rem' }}>제목</TableCell>
-                        <TableCell align="center" sx={{ width: 80, fontSize: '1rem' }}>조회수</TableCell>
-                        <TableCell align="center" sx={{ width: 160, fontSize: '1rem' }}>등록 일시</TableCell>
-                        <TableCell align="center" sx={{ width: 100, fontSize: '1rem' }}>작성자</TableCell>
+                        <TableCell align="center" sx={{width: 60, fontSize: '1rem'}}>번호</TableCell>
+                        <TableCell align="center" sx={{width: 100, fontSize: '1rem'}}>카테고리</TableCell>
+                        <TableCell align="center" sx={{width: 400, fontSize: '1rem'}}>제목</TableCell>
+                        <TableCell align="center" sx={{width: 80, fontSize: '1rem'}}>조회수</TableCell>
+                        <TableCell align="center" sx={{width: 160, fontSize: '1rem'}}>등록 일시</TableCell>
+                        <TableCell align="center" sx={{width: 100, fontSize: '1rem'}}>작성자</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -46,7 +46,7 @@ const PostTable = ({board, posts, searchParams}) => {
                         posts.map((post) => {
                             const isNew = differenceInDays(new Date(), parseISO(post.createAt)) <= board.newDay;
                             return (
-                                <TableRow key={post.id} hover sx={{'& td':{fontSize:'1rem'}}}>
+                                <TableRow key={post.id} hover sx={{'& td': {fontSize: '1rem'}}}>
                                     <TableCell align="center">{post.id}</TableCell>
                                     <TableCell align="center">{post.categoryName || ''}</TableCell>
                                     <TableCell>
