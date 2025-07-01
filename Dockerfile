@@ -28,7 +28,7 @@ RUN npm install --production
 # 빌드 결과물과 정적 파일 복사
 COPY --from=builder /app/.next .next
 COPY --from=builder /app/public public
-COPY --from=builder /app/next.config.js ./
+#COPY --from=builder /app/next.config.js ./
 
 # 환경 변수
 ENV NODE_ENV=production
