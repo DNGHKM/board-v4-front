@@ -2,8 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://donghakim.dev",
-    // baseURL: "http://localhost:8080",
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
 
 axiosInstance.interceptors.request.use((config) => {
