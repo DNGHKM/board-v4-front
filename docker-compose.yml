@@ -4,8 +4,6 @@ services:
   nextjs:
     image: dnghkm/board-v4-front:latest
     container_name: board-v4-front
-    ports:
-      - "3001:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
