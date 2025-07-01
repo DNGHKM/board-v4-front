@@ -58,7 +58,7 @@ SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통
 ---
 # 사용자 서비스 API 명세
 > 전체 API 명세는 Swagger 기반으로 구성되어 있으며, 다음은 주요 엔드포인트 요약입니다.  
-> 상세한 요청/응답 구조는 Swagger UI 참고
+> 상세한 요청/응답 구조는 Swagger UI 참고 : https://donghakim.dev/swagger-ui/index.html
 <details>
 <summary><strong>인증 API</strong></summary>
 
