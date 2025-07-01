@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://donghakim.dev/api",
+    baseURL: "https://donghakim.dev",
     // baseURL: "http://localhost:8080",
 });
 
