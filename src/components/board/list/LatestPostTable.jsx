@@ -8,23 +8,12 @@ import {getImagePreview} from "@/api/fileApi";
 import NewBadge from "@/components/common/NewBadge";
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 
-import {
-    Box,
-    Button,
-    Card,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Typography
-} from "@mui/material";
+import {Box, Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
 import MoreButton from "@/components/common/MoreButton";
 
 const LatestPostTable = ({board}) => {
     const [posts, setPosts] = useState([]);
-    const limit = board.boardType === 'GALLERY' ? 3 : 5;
+    const limit = board.boardType === 'GALLERY' ? 4 : 5;
 
     useEffect(() => {
         fetchLatestPostList(board.boardId, limit)
@@ -37,7 +26,7 @@ const LatestPostTable = ({board}) => {
             sx={{
                 p: 2,
                 mb: 4,
-                mt:6,
+                mt: 6,
                 border: '1px solid #ddd',
                 height: 300,
                 flexShrink: 0,
@@ -92,7 +81,7 @@ const LatestPostTable = ({board}) => {
                                                         <img
                                                             src={getImagePreview(post.thumbnailFilename)}
                                                             alt="썸네일"
-                                                            height={42}
+                                                            height={30}
                                                             style={{marginRight: '4px'}}
                                                         />
                                                         {post.fileCount > 1 && (
@@ -127,7 +116,7 @@ const LatestPostTable = ({board}) => {
 
                                                 {/* 클립 아이콘 */}
                                                 {board.fileType !== 'NONE' && post.fileCount > 0 && (
-                                                   <AttachFileIcon/>
+                                                    <AttachFileIcon/>
                                                 )}
 
                                                 {/* NEW 뱃지 */}
