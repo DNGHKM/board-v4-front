@@ -1,4 +1,4 @@
-import {Box, Typography, Stack, Divider, Chip, Paper} from "@mui/material";
+import {Box, Chip, Divider, Paper, Stack, Typography} from "@mui/material";
 import GalleryCarousel from "@/components/board/view/GalleryCarousel";
 import {formatDateTime} from "@/utils/dateUtils";
 
@@ -22,7 +22,8 @@ const PostInfo = ({post}) => {
                     </Typography>
                     <Stack direction="row" spacing={4}>
                         <Typography variant="body1">
-                            등록일시: <Typography component="span" fontWeight="normal">{formatDateTime(post.createAt)}</Typography>
+                            등록일시: <Typography component="span"
+                                              fontWeight="normal">{formatDateTime(post.createAt)}</Typography>
                         </Typography>
                         <Typography variant="body1">
                             조회수: <Typography component="span" fontWeight="normal">{post.viewCount + 1}</Typography>

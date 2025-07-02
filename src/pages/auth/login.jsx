@@ -2,14 +2,7 @@ import {useState} from "react";
 import {useRouter} from "next/router";
 import {useSearchParams} from "next/navigation";
 import {login} from "@/service/authService";
-import {
-    Box,
-    Card,
-    CardContent,
-    TextField,
-    Typography,
-    Button
-} from "@mui/material";
+import {Box, Button, Card, CardContent, TextField, Typography} from "@mui/material";
 
 const LoginPage = () => {
     const router = useRouter();
@@ -32,7 +25,7 @@ const LoginPage = () => {
 
     return (
         <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
-            <Card sx={{ width: '100%', maxWidth: 400, p: 2, boxShadow: 3 }}>
+            <Card sx={{width: '100%', maxWidth: 400, p: 2, boxShadow: 3}}>
                 <CardContent>
                     <Typography variant="h5" textAlign="center" gutterBottom>
                         로그인
@@ -60,7 +53,7 @@ const LoginPage = () => {
                             variant="contained"
                             color="success"
                             fullWidth
-                            sx={{ mt: 2 }}
+                            sx={{mt: 2}}
                         >
                             로그인
                         </Button>

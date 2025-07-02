@@ -1,16 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { getImagePreview } from "@/api/fileApi";
-import {
-    Avatar,
-    Box,
-    Button,
-    IconButton,
-    Paper,
-    Stack,
-    Typography
-} from "@mui/material";
+import {useEffect, useRef, useState} from "react";
+import {getImagePreview} from "@/api/fileApi";
+import {Avatar, Box, Button, IconButton, Paper, Stack, Typography} from "@mui/material";
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -54,7 +46,7 @@ const FileModifyForm = ({
         }
 
         const updated = fileInputs.map(input =>
-            input.id === id ? { ...input, file } : input
+            input.id === id ? {...input, file} : input
         );
         setFileInputs(updated);
     };
@@ -69,7 +61,7 @@ const FileModifyForm = ({
             return;
         }
 
-        setFileInputs(prev => [...prev, { id: Date.now(), file: null }]);
+        setFileInputs(prev => [...prev, {id: Date.now(), file: null}]);
     };
 
     const removeFileInput = (id) => {
@@ -96,19 +88,21 @@ const FileModifyForm = ({
             {preserveFiles.length > 0 && (
                 <Stack spacing={1} mb={2}>
                     {preserveFiles.map((file) => (
-                        <Paper key={file.savedFilename} sx={{ p: 1.5, display: 'flex', alignItems: 'center' }} variant="outlined">
+                        <Paper key={file.savedFilename} sx={{p: 1.5, display: 'flex', alignItems: 'center'}}
+                               variant="outlined">
                             {fileType === 'IMAGE' && (
                                 <Avatar
                                     src={getImagePreview(file.savedFilename)}
                                     variant="rounded"
-                                    sx={{ width: 50, height: 50, mr: 2 }}
+                                    sx={{width: 50, height: 50, mr: 2}}
                                 />
                             )}
-                            <Typography component="a" href={`/api/v1/files/${file.savedFilename}`} target="_blank" rel="noopener noreferrer" sx={{ flexGrow: 1 }}>
+                            <Typography component="a" href={`/api/v1/files/${file.savedFilename}`} target="_blank"
+                                        rel="noopener noreferrer" sx={{flexGrow: 1}}>
                                 {file.originalFilename}
                             </Typography>
                             <IconButton color="error" onClick={() => removePreserveFile(file.savedFilename)}>
-                                <DeleteIcon />
+                                <DeleteIcon/>
                             </IconButton>
                         </Paper>
                     ))}
@@ -118,18 +112,18 @@ const FileModifyForm = ({
             {/* 새 파일 */}
             <Stack spacing={1}>
                 {fileInputs.map((input) => (
-                    <Paper key={input.id} sx={{ p: 1.5, display: 'flex', alignItems: 'center' }} variant="outlined">
+                    <Paper key={input.id} sx={{p: 1.5, display: 'flex', alignItems: 'center'}} variant="outlined">
                         <input
                             type="file"
                             accept={acceptTypes}
                             ref={(el) => (fileRefs.current[input.id] = el)}
                             onChange={(e) => handleFileChange(e, input.id)}
-                            style={{ display: 'none' }}
+                            style={{display: 'none'}}
                         />
                         <Button
                             variant="outlined"
                             color="inherit"
-                            startIcon={<UploadFileIcon />}
+                            startIcon={<UploadFileIcon/>}
                             onClick={() => handleFileClick(input.id)}
                         >
                             파일 선택
@@ -144,7 +138,7 @@ const FileModifyForm = ({
                             {input.file ? input.file.name : '선택된 파일 없음'}
                         </Typography>
                         <IconButton onClick={() => removeFileInput(input.id)} color="error">
-                            <DeleteIcon />
+                            <DeleteIcon/>
                         </IconButton>
                     </Paper>
                 ))}

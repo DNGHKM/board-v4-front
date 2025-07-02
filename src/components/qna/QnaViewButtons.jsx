@@ -1,13 +1,13 @@
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import useAuthStore from "@/store/authStore";
-import { deleteQna } from "@/api/qnaApi";
-import { useSearchParams } from "next/navigation";
-import { Box, Button } from "@mui/material";
+import {deleteQna} from "@/api/qnaApi";
+import {useSearchParams} from "next/navigation";
+import {Box, Button} from "@mui/material";
 
-const QnaViewButtons = ({ qna }) => {
+const QnaViewButtons = ({qna}) => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const { isLoggedIn, username } = useAuthStore();
+    const {isLoggedIn, username} = useAuthStore();
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -33,7 +33,7 @@ const QnaViewButtons = ({ qna }) => {
             <Button
                 type="button"
                 variant="contained"
-                sx={{ minWidth: 90 }}
+                sx={{minWidth: 90}}
                 style={{backgroundColor: '#808080', color: '#fff'}}
                 onClick={() => router.push(`/qna/list?${searchParams}`)}
             >
@@ -45,7 +45,7 @@ const QnaViewButtons = ({ qna }) => {
                     <Button
                         variant="contained"
                         color="primary"
-                        sx={{ minWidth: 90 }}
+                        sx={{minWidth: 90}}
                         onClick={() => router.push(`/qna/modify/${qna.id}?${searchParams}`)}
                     >
                         수정
@@ -53,7 +53,7 @@ const QnaViewButtons = ({ qna }) => {
                     <Button
                         variant="contained"
                         color="error"
-                        sx={{ minWidth: 90 }}
+                        sx={{minWidth: 90}}
                         onClick={handleDelete}
                     >
                         삭제

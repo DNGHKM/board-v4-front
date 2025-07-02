@@ -12,7 +12,7 @@ export const validToken = ({token}) => {
 
 export const fetchUsernameCheck = (username) => {
     return axiosInstance.get(`/api/v1/auth/check`, {
-        params: { username }
+        params: {username}
     }).then(res => res.data.data);
 };
 

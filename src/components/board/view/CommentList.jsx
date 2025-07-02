@@ -2,14 +2,7 @@ import {useEffect, useState} from "react";
 import {deleteComment, fetchComment, postComment} from "@/api/commentApi";
 import {formatDateTime} from "@/utils/dateUtils";
 import useAuthStore from "@/store/authStore";
-import {
-    Box,
-    Typography,
-    Button,
-    TextField,
-    Paper,
-    Divider
-} from "@mui/material";
+import {Box, Button, Divider, Paper, TextField, Typography} from "@mui/material";
 
 const CommentList = ({postId}) => {
     const [comments, setComments] = useState([]);
@@ -79,7 +72,7 @@ const CommentList = ({postId}) => {
                                 </Button>
                             )}
                         </Box>
-                        <Divider sx={{mb: 1}} />
+                        <Divider sx={{mb: 1}}/>
                         <Typography variant="body1">{c.content}</Typography>
                     </Paper>
                 ))

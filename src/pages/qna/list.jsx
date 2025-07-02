@@ -8,7 +8,7 @@ import useAuthStore from "@/store/authStore";
 import QnaTable from "@/components/qna/QnaTable";
 import QnaSearchForm from "@/components/qna/QnaSearchForm";
 import {fetchQnaListBySearch} from "@/api/qnaApi";
-import {Container, Typography, Box} from "@mui/material";
+import {Box, Container, Typography} from "@mui/material";
 
 const QnaListPage = () => {
     const searchParams = useSearchParams();
@@ -42,7 +42,7 @@ const QnaListPage = () => {
     }, [query]);
 
     return (
-        <Container maxWidth="lg" sx={{ mt: 5 }}>
+        <Container maxWidth="lg" sx={{mt: 5}}>
             <Box mb={4}>
                 <Typography variant="h4" fontWeight="bold" gutterBottom>
                     문의게시판
@@ -53,14 +53,14 @@ const QnaListPage = () => {
 
             {isLoggedIn && (
                 <Box mt={2} mb={2}>
-                    <GoToWritePageButton path="/qna/write" />
+                    <GoToWritePageButton path="/qna/write"/>
                 </Box>
             )}
 
-            <QnaTable qnaList={qnaList} searchParams={searchParams} />
+            <QnaTable qnaList={qnaList} searchParams={searchParams}/>
 
             <Box mt={4} mb={6}>
-                <MuiPagination currentPage={page} totalPages={totalPages} basePath="qna" />
+                <MuiPagination currentPage={page} totalPages={totalPages} basePath="qna"/>
             </Box>
         </Container>
     );

@@ -49,7 +49,7 @@ const LatestQnaTable = () => {
             sx={{
                 p: 2,
                 mb: 4,
-                mt:6,
+                mt: 6,
                 border: '1px solid #ddd',
                 height: 300,
                 flexShrink: 0,

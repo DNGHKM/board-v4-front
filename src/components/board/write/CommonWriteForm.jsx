@@ -1,15 +1,6 @@
 import {useEffect, useState} from "react";
 import {fetchCategories} from "@/api/categoryApi";
-import {
-    Box,
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
-    TextField,
-    Typography,
-    Stack
-} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select, Stack, TextField} from "@mui/material";
 
 const CommonWriteForm = ({board, formData, setFormData}) => {
     const [categories, setCategories] = useState([]);

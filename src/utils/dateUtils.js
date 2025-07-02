@@ -6,6 +6,7 @@ export function formatDate(date) {
         String(date.getDate()).padStart(2, '0')
     ].join('-');
 }
+
 export function formatDateTime(dateTime) {
     const date = new Date(dateTime);
     if (!(date instanceof Date) || isNaN(date)) return "-";

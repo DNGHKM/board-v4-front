@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const MuiPagination = ({ board, currentPage, totalPages, basePath }) => {
+const MuiPagination = ({board, currentPage, totalPages, basePath}) => {
     const router = useRouter();
 
     const handleChange = (event, page) => {
@@ -30,7 +29,7 @@ const MuiPagination = ({ board, currentPage, totalPages, basePath }) => {
                     />
                 </Stack>
             ) : (
-                <div style={{ height: "56px" }} />
+                <div style={{height: "56px"}}/>
             )}
         </div>
     );

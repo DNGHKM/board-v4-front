@@ -50,13 +50,13 @@ const LatestPostTable = ({board}) => {
             <TableContainer>
                 <Table size="small" sx={{
                     '& .MuiTableCell-root': {borderBottom: '1px solid #eee'},
-                    border: '1px solid #ddd',
+                    border: '1px solid #ddd', tableLayout: 'fixed', width: '100%'
                 }}>
                     <TableHead sx={{backgroundColor: '#f5f5f5'}}>
                         <TableRow>
-                            <TableCell align="center" sx={{width: 60}}>번호</TableCell>
-                            <TableCell align="center" sx={{width: 80}}>분류</TableCell>
-                            <TableCell align="center">제목</TableCell>
+                            <TableCell align="center" sx={{width: 60, whiteSpace: 'nowrap'}}>번호</TableCell>
+                            <TableCell align="center" sx={{width: 100}}>분류</TableCell>
+                            <TableCell align="center">제목</TableCell> {/* 남는 공간 자동 할당 */}
                         </TableRow>
                     </TableHead>
                     <TableBody>

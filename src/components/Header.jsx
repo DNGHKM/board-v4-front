@@ -8,22 +8,13 @@ import {useRouter} from "next/router";
 import {logout, restoreLogin} from "@/service/authService";
 import {fetchBoardList} from "@/api/boardApi";
 
-import {
-    AppBar,
-    Toolbar,
-    Typography,
-    Box,
-    Button,
-    Stack,
-    Container,
-    Link as MuiLink
-} from "@mui/material";
+import {AppBar, Box, Button, Container, Link as MuiLink, Stack, Toolbar, Typography} from "@mui/material";
 
 const Header = () => {
     const pathname = usePathname() ?? '';
     const router = useRouter();
     const searchParams = useSearchParams();
-    const {isLoggedIn, username, name} = useAuthStore();
+    const {isLoggedIn, name} = useAuthStore();
 
     const [boards, setBoards] = useState([]);
     const [redirectUrl, setRedirectUrl] = useState("");
@@ -45,7 +36,7 @@ const Header = () => {
     }, []);
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#333', color: '#fff' }}>
+        <AppBar position="static" sx={{backgroundColor: '#333', color: '#fff'}}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters sx={{justifyContent: 'space-between', flexWrap: 'wrap'}}>
                     {/* 좌측 메뉴 */}

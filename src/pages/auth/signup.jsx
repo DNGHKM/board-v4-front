@@ -1,20 +1,11 @@
 'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useSearchParams } from "next/navigation";
-import { fetchUsernameCheck } from "@/api/authApi";
-import { signUp } from "@/service/authService";
-import {
-    Box,
-    Button,
-    Card,
-    CardContent,
-    TextField,
-    Typography,
-    InputAdornment,
-    IconButton
-} from "@mui/material";
+import {useState} from "react";
+import {useRouter} from "next/router";
+import {useSearchParams} from "next/navigation";
+import {fetchUsernameCheck} from "@/api/authApi";
+import {signUp} from "@/service/authService";
+import {Box, Button, Card, CardContent, InputAdornment, TextField, Typography} from "@mui/material";
 
 const USERNAME_MIN = 4;
 const USERNAME_MAX = 11;
@@ -38,16 +29,16 @@ const SignUpForm = () => {
     const redirect = searchParams.get("redirect") || "/auth/login";
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setForm(prev => ({ ...prev, [name]: value }));
-        setMessages(prev => ({ ...prev, [name]: '' }));
+        const {name, value} = e.target;
+        setForm(prev => ({...prev, [name]: value}));
+        setMessages(prev => ({...prev, [name]: ''}));
 
         if (name === 'username') setUsernameChecked(false);
     };
 
     const validate = () => {
         const errors = {};
-        const { username, password, passwordCheck, name } = form;
+        const {username, password, passwordCheck, name} = form;
 
         if (!username.trim()) errors.username = "아이디를 입력해 주세요";
         else if (username.length < USERNAME_MIN || username.length > USERNAME_MAX)
@@ -79,7 +70,7 @@ const SignUpForm = () => {
 
     const checkUsername = async () => {
         if (!form.username.trim()) {
-            setMessages(prev => ({ ...prev, username: "아이디를 입력해 주세요" }));
+            setMessages(prev => ({...prev, username: "아이디를 입력해 주세요"}));
             return;
         }
 
@@ -114,8 +105,9 @@ const SignUpForm = () => {
     };
 
     return (
-        <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" sx={{ backgroundColor: '#f8f9fa' }}>
-            <Card sx={{ width: '100%', maxWidth: 500, boxShadow: 3 }}>
+        <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh"
+             sx={{backgroundColor: '#f8f9fa'}}>
+            <Card sx={{width: '100%', maxWidth: 500, boxShadow: 3}}>
                 <CardContent>
                     <Typography variant="h5" textAlign="center" gutterBottom>회원가입</Typography>
                     <form onSubmit={handleSubmit}>
@@ -180,7 +172,7 @@ const SignUpForm = () => {
                             variant="contained"
                             color="primary"
                             fullWidth
-                            sx={{ mt: 2 }}
+                            sx={{mt: 2}}
                             disabled={!usernameChecked}
                         >
                             회원가입

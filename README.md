@@ -1,4 +1,5 @@
 # 게시판
+
 https://donghakim.dev
 
 SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통합형 게시판 프로젝트입니다.  
@@ -6,31 +7,34 @@ SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통
 
 - [시연 영상 (사용자)](https://youtu.be/NQkHUqUANrI?si=AyIwStbiEwqnnYBA)
 - [시연 영상 (관리자)](https://youtu.be/KhFtfZJPKak?si=A70nei8B_IFfz8rh)
+
 ---
 
 ## 프로젝트 구성
 
-| 모듈 | 설명 | GitHub |
-|------|------|--------|
-| 사용자 API | 게시판, 댓글, Q&A 등 API 제공 (SpringBoot) | [board-v4](https://github.com/DNGHKM/board-v4) |
-| 사용자 프론트엔드 | 게시판 SPA 프론트엔드 (Next.js) | [board-v4-front](https://github.com/DNGHKM/board-v4-front) |
-| 관리자 서비스 | 게시판 관리 기능 제공 (SpringBoot + Thymeleaf 기반 MPA) | [board-v4-admin](https://github.com/DNGHKM/board-v4-admin) |
+| 모듈        | 설명                                           | GitHub                                                     |
+|-----------|----------------------------------------------|------------------------------------------------------------|
+| 사용자 API   | 게시판, 댓글, Q&A 등 API 제공 (SpringBoot)           | [board-v4](https://github.com/DNGHKM/board-v4)             |
+| 사용자 프론트엔드 | 게시판 SPA 프론트엔드 (Next.js)                      | [board-v4-front](https://github.com/DNGHKM/board-v4-front) |
+| 관리자 서비스   | 게시판 관리 기능 제공 (SpringBoot + Thymeleaf 기반 MPA) | [board-v4-admin](https://github.com/DNGHKM/board-v4-admin) |
 
 ---
 
 ## 사용 기술
 
 **Backend**
+
 - Java 21, SpringBoot, MyBatis
 - RESTful API, Swagger
 
 **Frontend**
+
 - 사용자: Next.js (Pages Router), React, Material UI
 - 관리자: Thymeleaf, Bootstrap 5
 
 **Database**
-- MySQL
 
+- MySQL
 
 ---
 
@@ -58,8 +62,11 @@ SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통
 - 게시판 유형(board_type)에 따라 기능 정책 분리
 - 첨부파일, 카테고리, Q&A 관리 등 세분화된 설계
   ![ERD 미리보기](./doc/erd.png)
+
 ---
+
 # 사용자 서비스 API 명세
+
 > 전체 API 명세는 Swagger 기반으로 구성되어 있으며, 다음은 주요 엔드포인트 요약입니다.  
 > 상세한 요청/응답 구조는 Swagger UI 참고 : https://donghakim.dev/swagger-ui/index.html
 <details>
@@ -77,13 +84,13 @@ SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통
 <details>
 <summary><strong>게시글 API</strong></summary>
 
-| Method | URL                        | 설명               |
-|--------|----------------------------|--------------------|
-| GET    | /api/posts                 | 게시글 목록 조회     |
-| GET    | /api/posts/{id}           | 게시글 상세 조회     |
-| POST   | /api/posts                 | 게시글 작성         |
-| PUT    | /api/posts/{id}           | 게시글 수정         |
-| DELETE | /api/posts/{id}           | 게시글 삭제         |
+| Method | URL                       | 설명          |
+|--------|---------------------------|-------------|
+| GET    | /api/posts                | 게시글 목록 조회   |
+| GET    | /api/posts/{id}           | 게시글 상세 조회   |
+| POST   | /api/posts                | 게시글 작성      |
+| PUT    | /api/posts/{id}           | 게시글 수정      |
+| DELETE | /api/posts/{id}           | 게시글 삭제      |
 | POST   | /api/posts/password-check | 비회원 비밀번호 확인 |
 
 </details>
@@ -91,43 +98,43 @@ SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통
 <details>
 <summary><strong>댓글 API</strong></summary>
 
-| Method | URL                      | 설명         |
-|--------|--------------------------|--------------|
-| GET    | /api/comments/{postId}   | 댓글 목록 조회 |
-| POST   | /api/comments            | 댓글 작성     |
-| DELETE | /api/comments/{id}       | 댓글 삭제     |
+| Method | URL                    | 설명       |
+|--------|------------------------|----------|
+| GET    | /api/comments/{postId} | 댓글 목록 조회 |
+| POST   | /api/comments          | 댓글 작성    |
+| DELETE | /api/comments/{id}     | 댓글 삭제    |
 
 </details>
 
 <details>
 <summary><strong>게시판/카테고리 API</strong></summary>
 
-| Method | URL                         | 설명                     |
-|--------|-----------------------------|--------------------------|
-| GET    | /api/boards                 | 게시판 목록 조회           |
-| GET    | /api/boards/{id}            | 게시판 상세 조회           |
-| GET    | /api/categories/{boardId}   | 특정 게시판의 카테고리 목록 |
+| Method | URL                       | 설명              |
+|--------|---------------------------|-----------------|
+| GET    | /api/boards               | 게시판 목록 조회       |
+| GET    | /api/boards/{id}          | 게시판 상세 조회       |
+| GET    | /api/categories/{boardId} | 특정 게시판의 카테고리 목록 |
 
 </details>
 
 <details>
 <summary><strong>Q&A (1:1 문의) API</strong></summary>
 
-| Method | URL           | 설명         |
-|--------|---------------|--------------|
-| POST   | /api/qna      | Q&A 작성      |
+| Method | URL           | 설명        |
+|--------|---------------|-----------|
+| POST   | /api/qna      | Q&A 작성    |
 | GET    | /api/qna/{id} | Q&A 상세 조회 |
-| PUT    | /api/qna/{id} | Q&A 수정      |
-| DELETE | /api/qna/{id} | Q&A 삭제      |
+| PUT    | /api/qna/{id} | Q&A 수정    |
+| DELETE | /api/qna/{id} | Q&A 삭제    |
 
 </details>
 
 <details>
 <summary><strong>파일 API</strong></summary>
 
-| Method | URL                    | 설명             |
-|--------|------------------------|------------------|
-| POST   | /api/upload            | 파일 업로드       |
-| GET    | /api/files/{filename}  | 파일 다운로드     |
+| Method | URL                   | 설명      |
+|--------|-----------------------|---------|
+| POST   | /api/upload           | 파일 업로드  |
+| GET    | /api/files/{filename} | 파일 다운로드 |
 
 </details>

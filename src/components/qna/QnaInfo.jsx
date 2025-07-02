@@ -32,8 +32,10 @@ const QnaInfo = ({qna}) => {
             <div
                 id="content"
                 className="qna-content p-4 bg-light rounded border"
-                style={{whiteSpace: "pre-line", lineHeight: "1.75",
-                    minHeight: "400px"}}
+                style={{
+                    whiteSpace: "pre-line", lineHeight: "1.75",
+                    minHeight: "400px"
+                }}
             >
                 {qna.content}
             </div>

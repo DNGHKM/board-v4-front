@@ -7,13 +7,7 @@ import PostFile from "@/components/board/view/PostFile";
 import CommentList from "@/components/board/view/CommentList";
 import BoardViewButtons from "@/components/board/view/BoardViewButtons";
 
-import {
-    Box,
-    Container,
-    Typography,
-    Paper,
-    Divider
-} from "@mui/material";
+import {Container, Divider, Paper, Typography} from "@mui/material";
 
 const PostViewPage = () => {
     const router = useRouter();
@@ -36,27 +30,27 @@ const PostViewPage = () => {
     if (!post) return <Typography align="center" mt={5}>게시글 정보를 불러올 수 없습니다.</Typography>;
 
     return (
-        <Container maxWidth="lg" sx={{ mt: 6 }}>
+        <Container maxWidth="lg" sx={{mt: 6}}>
             <Typography variant="h4" gutterBottom fontWeight="bold">
                 {board.boardName}
             </Typography>
 
             {/* 게시글 정보 영역 */}
-            <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
-                <PostInfo post={post} />
+            <Paper elevation={2} sx={{p: 3, mb: 4}}>
+                <PostInfo post={post}/>
                 {board.fileType !== 'NONE' && (
                     <>
-                        <Divider sx={{ my: 2 }} />
-                        <PostFile files={post.files} />
+                        <Divider sx={{my: 2}}/>
+                        <PostFile files={post.files}/>
                     </>
                 )}
             </Paper>
 
             {/* 댓글 */}
-            {board.boardType === 'FREE' && <CommentList postId={post.id} />}
+            {board.boardType === 'FREE' && <CommentList postId={post.id}/>}
 
             {/* 버튼 */}
-            <BoardViewButtons post={post} />
+            <BoardViewButtons post={post}/>
         </Container>
     );
 };

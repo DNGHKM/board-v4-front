@@ -24,7 +24,7 @@ const GoToWritePageButton = ({path}) => {
                 aria-label="edit"
                 onClick={handleClick}
             >
-                <EditIcon />
+                <EditIcon/>
             </Fab>
         </div>
     );

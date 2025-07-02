@@ -6,7 +6,7 @@ const SubmitButton = ({onSubmit, onCancel}) => {
             <Button
                 type="button"
                 variant="contained"
-                sx={{ minWidth: 90 }}
+                sx={{minWidth: 90}}
                 style={{backgroundColor: '#808080', color: '#fff'}}
                 onClick={onCancel}
             >
@@ -16,10 +16,10 @@ const SubmitButton = ({onSubmit, onCancel}) => {
                 type="button"
                 variant="contained"
                 color="success"
-                sx={{ minWidth: 90 }}
+                sx={{minWidth: 90}}
                 onClick={onSubmit}
             >
-                등록
+                확인
             </Button>
         </div>
     );

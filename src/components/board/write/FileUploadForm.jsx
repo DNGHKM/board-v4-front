@@ -75,7 +75,7 @@ const FileUploadForm = ({fileType, fileMaxSize, fileMaxCount, setFormData}) => {
                         <Button
                             variant="outlined"
                             color="inherit"
-                            startIcon={<UploadFileIcon />}
+                            startIcon={<UploadFileIcon/>}
                             onClick={() => handleFileClick(input.id)}
                         >
                             파일 선택

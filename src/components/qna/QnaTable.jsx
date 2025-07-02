@@ -36,11 +36,11 @@ const QnaTable = ({qnaList, searchParams}) => {
             >
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center" sx={{width: 60, fontSize : '1rem'}}>번호</TableCell>
-                        <TableCell align="center" sx={{width: 400, fontSize : '1rem'}}>제목</TableCell>
-                        <TableCell align="center" sx={{width: 80, fontSize : '1rem'}}>조회수</TableCell>
-                        <TableCell align="center" sx={{width: 160, fontSize : '1rem'}}>등록 일시</TableCell>
-                        <TableCell align="center" sx={{width: 100, fontSize : '1rem'}}>작성자</TableCell>
+                        <TableCell align="center" sx={{width: 60, fontSize: '1rem'}}>번호</TableCell>
+                        <TableCell align="center" sx={{width: 400, fontSize: '1rem'}}>제목</TableCell>
+                        <TableCell align="center" sx={{width: 80, fontSize: '1rem'}}>조회수</TableCell>
+                        <TableCell align="center" sx={{width: 160, fontSize: '1rem'}}>등록 일시</TableCell>
+                        <TableCell align="center" sx={{width: 100, fontSize: '1rem'}}>작성자</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

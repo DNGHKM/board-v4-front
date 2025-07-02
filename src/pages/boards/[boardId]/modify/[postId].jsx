@@ -1,12 +1,11 @@
 import {useEffect, useState} from 'react';
 import {fetchBoardDetail} from '@/api/boardApi';
 import {useRouter} from "next/router";
-import CommonModifyForm from "@/components/board/modify/CommonModifyForm";
-import ModifyActionButton from "@/components/board/modify/ModifyActionButton";
 import {fetchPostDetail, modifyPost} from "@/api/postApi";
 import FileModifyForm from "@/components/board/modify/FileModifyForm";
 import {useSearchParams} from "next/navigation";
 import CommonWriteForm from "@/components/board/write/CommonWriteForm";
+import SubmitButton from "@/components/common/SubmitButton";
 
 const PostModifyPage = () => {
     const router = useRouter();
@@ -92,6 +91,12 @@ const PostModifyPage = () => {
         }
     };
 
+    const handleCancel = () => {
+        if (window.confirm("작성 중인 내용을 취소하시겠습니까?")) {
+            window.history.back();
+        }
+    };
+
     if (!board) return <div>게시판 정보를 불러오는 중입니다...</div>;
     if (!formData.subject) return <div>게시글 정보를 불러오는 중입니다...</div>;
 
@@ -111,7 +116,7 @@ const PostModifyPage = () => {
                     />
                     </tbody>
                 </table>
-                <ModifyActionButton onSubmit={handleSubmit}/>
+                <SubmitButton onSubmit={handleSubmit} onCancel={handleCancel}/>
             </form>
         </div>
     );

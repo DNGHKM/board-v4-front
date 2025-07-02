@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { fetchCategories } from "@/api/categoryApi";
+import {useEffect, useState} from "react";
+import {fetchCategories} from "@/api/categoryApi";
 
-const CommonModifyForm = ({ board, formData, setFormData }) => {
+const CommonModifyForm = ({board, formData, setFormData}) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const CommonModifyForm = ({ board, formData, setFormData }) => {
     }, [board?.boardId]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value

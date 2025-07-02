@@ -1,14 +1,14 @@
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import {useSearchParams} from "next/navigation";
+import {useRouter} from "next/router";
 import useAuthStore from "@/store/authStore";
-import { deletePost } from "@/api/postApi";
-import { Box, Button } from "@mui/material";
+import {deletePost} from "@/api/postApi";
+import {Box, Button} from "@mui/material";
 
-const BoardViewButtons = ({ post }) => {
+const BoardViewButtons = ({post}) => {
     const searchParams = useSearchParams();
     const router = useRouter();
-    const { boardId } = router.query;
-    const { isLoggedIn, username } = useAuthStore();
+    const {boardId} = router.query;
+    const {isLoggedIn, username} = useAuthStore();
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -29,8 +29,8 @@ const BoardViewButtons = ({ post }) => {
             <Button
                 type="button"
                 variant="contained"
-                sx={{ minWidth: 90 }}
-                style={{ backgroundColor: '#808080', color: '#fff' }}
+                sx={{minWidth: 90}}
+                style={{backgroundColor: '#808080', color: '#fff'}}
                 onClick={() => {
                     router.push(`/boards/${boardId}/list?${searchParams}`);
                 }}
@@ -43,7 +43,7 @@ const BoardViewButtons = ({ post }) => {
                     <Button
                         variant="contained"
                         color="primary"
-                        sx={{ minWidth: 90 }}
+                        sx={{minWidth: 90}}
                         onClick={() => {
                             router.push(`/boards/${boardId}/modify/${post.id}?${searchParams}`);
                         }}
@@ -53,7 +53,7 @@ const BoardViewButtons = ({ post }) => {
                     <Button
                         variant="contained"
                         color="error"
-                        sx={{ minWidth: 90 }}
+                        sx={{minWidth: 90}}
                         onClick={handleDelete}
                     >
                         삭제
