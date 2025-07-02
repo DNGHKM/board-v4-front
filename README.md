@@ -1,8 +1,11 @@
-# 통합형 게시판 프로젝트
+# 게시판
+https://donghakim.dev
 
 SpringBoot 기반 REST API 서버와 Next.js SPA, Thymeleaf MPA를 조합한 통합형 게시판 프로젝트입니다.  
-사용자 영역과 관리자 영역을 분리하여 구현하였습니다.
+사용자 영역(SPA)과 관리자 영역(MPA)을 분리하여 구현하였습니다.
 
+- [시연 영상 (사용자)](https://youtu.be/NQkHUqUANrI?si=AyIwStbiEwqnnYBA)
+- [시연 영상 (관리자)](https://youtu.be/KhFtfZJPKak?si=A70nei8B_IFfz8rh)
 ---
 
 ## 프로젝트 구성
