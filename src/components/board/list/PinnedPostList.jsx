@@ -6,6 +6,7 @@ import {fetchPinnedPostList} from "@/api/postApi";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import {getImagePreview} from "@/api/fileApi";
+import NewBadge from "@/components/common/NewBadge";
 
 const PinnedPostList = ({board, searchParams}) => {
     const [pinnedPosts, setPinnedPosts] = useState([]);
@@ -26,11 +27,12 @@ const PinnedPostList = ({board, searchParams}) => {
             {pinnedPosts.map((p) => {
                 const isNew = differenceInDays(new Date(), parseISO(p.createAt)) <= board.newDay;
                 return (
-                    <TableRow key={`pinned-${p.id}`} hover selected sx={{'& td':{fontSize:'1rem'}}}>
+                    <TableRow key={`pinned-${p.id}`} hover selected sx={{'& td': {fontSize: '1rem'}}}>
                         <TableCell align="center">{p.id}</TableCell>
                         <TableCell align="center">{p.categoryName || ''}</TableCell>
                         <TableCell align="left">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                                {isNew && <NewBadge/>}
                                 {board.boardType === 'GALLERY' && p.fileCount > 0 && (
                                     <>
                                         <img
@@ -47,7 +49,7 @@ const PinnedPostList = ({board, searchParams}) => {
                                         pathname: `/boards/${board.boardId}/view/${p.id}`,
                                         query: Object.fromEntries(searchParams.entries())
                                     }}
-                                    style={{ textDecoration: 'none', color: 'inherit', maxWidth: '100%' }}
+                                    style={{textDecoration: 'none', color: 'inherit', maxWidth: '100%'}}
                                     className="text-truncate"
                                 >
                                     {p.subject.length > 60 ? p.subject.slice(0, 60) + '...' : p.subject}
@@ -57,10 +59,9 @@ const PinnedPostList = ({board, searchParams}) => {
                                 </Link>
 
                                 {board.fileType !== 'NONE' && p.fileCount > 0 && (
-                                    <img src="/clip.png" width="18" alt="첨부" className="align-middle" />
+                                    <img src="/clip.png" width="18" alt="첨부" className="align-middle"/>
                                 )}
 
-                                {isNew && <span className="badge bg-danger">NEW</span>}
                             </div>
                         </TableCell>
                         <TableCell align="center">{p.viewCount.toLocaleString()}</TableCell>
